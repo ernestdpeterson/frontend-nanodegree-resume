@@ -13,9 +13,32 @@ var funThoughts = awesomeThoughts.replace("AWSOME", "FUN");
  var Ae = Aa.split(space)*/
  /*$("#main").append(A.length);*/
 /*$("#main").append(Ae[0]);*/
-  var formattedName = "Ernest D. Petereson";
-  var formattedRole = "Web Developer";
-  var Role = HTMLheaderRole.replace("%data%", formattedRole);
-  var Name = HTMLheaderName.replace("%data%", formattedName);
-  $("#header").prepend(Role);
-  $("#header").prepend(Name);
+var formattedName = "Ernest D. Petereson";
+var formattedRole = "Web Developer";
+var Role = HTMLheaderRole.replace("%data%", formattedRole);
+var Name = HTMLheaderName.replace("%data%", formattedName);
+$("#header").prepend(Role);
+$("#header").prepend(Name);
+var bio = {
+    "FirstName" : "Ernest",
+    "LastName" : "Peterson",
+    "MiddleName" : "D.",
+    "Role" : "Web Developer",
+    "ContactCell" : "Cell 601-307-4377",
+    "ContactEmail" : "petesplace312@yahoo.com",
+    "PictureURL" : "images/smiley.gif",
+    "WelcomeMessage" : "Welcome To My Resume Page"
+};
+var space = " ";
+var wmessage = HTMLwelcomeMsg.replace("%data%", bio.WelcomeMessage);
+var bodyname = HTMLcontactGeneric.replace("%contact%", bio.FirstName + space + 
+    bio.MiddleName + space + bio.LastName).replace("%data%", bio.Role);
+var mainimage = HTMLbioPic.replace("%data%", bio.PictureURL);
+var email = HTMLemail.replace("%data%", bio.ContactEmail);
+var cell = HTMLmobile.replace("%data%", bio.ContactCell);
+$("#header").append(mainimage);
+$("#header").append(wmessage);
+$("#header").append(bodyname);
+$("#header").append(email);
+$("#header").append(cell);
+
