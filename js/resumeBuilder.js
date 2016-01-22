@@ -27,7 +27,10 @@ var bio = {
     "ContactCell" : "Cell 601-307-4377",
     "ContactEmail" : "petesplace312@yahoo.com",
     "PictureURL" : "images/smiley.gif",
-    "WelcomeMessage" : "Welcome To My Resume Page"
+    "Location" : "Pensacola, FL",
+    "WelcomeMessage" : "Welcome To My Resume Page",
+    "Skills" : ["SQL", "Truck Driver", "Carpentry", "Electrician", "Computer Repair", 
+        "HTML & CSS"]
 };
 var space = " ";
 var wmessage = HTMLwelcomeMsg.replace("%data%", bio.WelcomeMessage);
@@ -36,9 +39,10 @@ var bodyname = HTMLcontactGeneric.replace("%contact%", bio.FirstName + space +
 var mainimage = HTMLbioPic.replace("%data%", bio.PictureURL);
 var email = HTMLemail.replace("%data%", bio.ContactEmail);
 var cell = HTMLmobile.replace("%data%", bio.ContactCell);
+var locality = HTMLlocation.replace("%data%", bio.Location)
 $("#header").append(mainimage);
 $("#header").append(wmessage);
 $("#header").append(bodyname);
 $("#header").append(email);
 $("#header").append(cell);
-
+$("#header").append(locality);
