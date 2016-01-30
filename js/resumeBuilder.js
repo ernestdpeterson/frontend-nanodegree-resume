@@ -1,96 +1,31 @@
+var Name1 = "Ernest D. Peterson";
+var Role1 = "Web Developer";
 var bio = {
     "FirstName" : "Ernest",
     "LastName" : "Peterson",
     "MiddleName" : "D.",
     "Role" : "Web Developer",
-    "Contacts" : [
-        "Cell 601-307-4377",
-        "E-Mail petesplace312@yahoo.com",
-        "GitHub ernestdpeterson"
-    ],
+    "ContactCell" : "Cell 601-307-4377",
+    "ContactEmail" : "petesplace312@yahoo.com",
     "PictureURL" : "images/smiley.gif",
     "Location" : "Pensacola, FL",
     "WelcomeMessage" : "Welcome To My Resume Page",
-    /*"Skills" : ["SQL", "Truck Driver", "Carpentry", "Electrician", "Computer Repair", 
-        "HTML & CSS", "Mechanic", "Welder", "Forklift Operator"]*/
+    "Skills" : [" SQL", " Truck Driver", " Carpenter", " Electrician", " Computer Repair", 
+        " HTML & CSS"]
 }
-var work = {
-    "jobs" : [
-        {
-        "employer" : "Airgas/Dry Ice",
-        "title" : "Truck Driver",
-        "location" : ["Star, MS", "Deer Park, TX"],
-        "dates" : ["06/2008", "Current"],
-        "description" : "Loading, Delivering and unloading carbon dioxide."
-        },
-        {
-        "employer" : "Self Employed",
-        "title" : "Truck Driver",
-        "location" : "Seminary, MS",
-        "dates" : ["04/2003", "06/2008"],
-        "description" : "Owner and Operator of a small trucking company."
-        },
-        {
-        "employer" : "Flying J",
-        "title" : "Truck Driver",
-        "location" : "Perl, MS",
-        "dates" : ["10/1999", "04/2003"],
-        "description" : "Fuel Tanker Driver"
-        },
-        {
-        "employer" : "Fleet Morris",
-        "title" : "Truck Driver",
-        "location" : "Collins, MS",
-        "dates" : ["05/1997", "10/1999"],
-        "description" : "Fuel Tanker Driver."
-        },
-        {
-        "employer" : "Sanderson Farms",
-        "title" : "Truck Driver/Manager",
-        "location" : "Collins, MS",
-        "dates" : ["11/1993", "05/1997"],
-        "description" : "Managed a spray crew and drove a live haul truck."
-        },
-        {
-        "employer" : "T&L Trucking",
-        "title" : "Truck Driver",
-        "location" : "Big Creek, MS",
-        "dates" : ["02/1991", "11/1993"],
-        "description" : "Long haul truck driver."
-        }
-    ]
+// Conditionals below this line
+if(bio.Skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
 }
-
-var education = {
-    "schools" : [
-        {
-            "name" : "O'Reilly School of Technology",
-            "city" : "Online",
-            "degree" : "N/A",
-            "major" : "Introduction to Relational Databases"
-        },
-        {
-            "name" : "University of Pheonix",
-            "city" : "Online",
-            "degree" : "N/A",
-            "major" : "CompTIA +"
-        },
-        {
-            "name" : "Udacity",
-            "city" : "Online",
-            "degree" : "N/A",
-            "major" : "Front End Web Developer" 
-        }
-    ]
+else {
+    $("#header").append("DAMN!!!!!")
 }
-var projects = {
-    "Resume" : [
-        "title" : "Udacity Resume Project".
-        "dates" : ["01/2016", "Current"],
-        "description" : "Build a resume using HTML, CSS and Java."
-    ]
-}
-// Formatting from helper.js past this line
-
-// Append to index.html past this line
-
+// Formatting below this line
+var Name = HTMLheaderName.replace("%data%", Name1);
+var Role = HTMLheaderRole.replace("%data%", Role1);
+var formattedSkills = HTMLskills.replace("%data%", bio.Skills);
+// appending below this line
+$("#header").prepend(Role);
+$("#header").prepend(Name);
+//$("#header").append(HTMLskillsStart);
+$("#skills").append(formattedSkills);
