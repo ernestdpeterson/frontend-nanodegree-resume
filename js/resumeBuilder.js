@@ -122,6 +122,14 @@ function displayWork(){
     }
 }
 displayWork();
+    // for internationalize button
+function inName(name) {
+    name = Name1.trim().split(" ");
+    console.log(name);
+    name[2] = name[2].toUpperCase();
+    name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
+    return name[0] +" "+ name[2];
+}
 // Formatting below this line
 var Name = HTMLheaderName.replace("%data%", Name1);
 var Role = HTMLheaderRole.replace("%data%", Role1);
@@ -133,3 +141,4 @@ $("#header").prepend(Name);
 $("#header").prepend(pic);
 $("#header").append(work.jobs.title);
 $("#skills").append(formattedSkills);
+$("#main").append(internationalizeButton);
