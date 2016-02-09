@@ -57,7 +57,7 @@ var work = {
             "title" : "Truck Driver",
             "location" : "Star, MS",
             "dates" : "6/2008-current",
-            "description" : "Loading, delivering and unloading liquid CO2 or solid Dry Ice."
+            "description" : "Loading, delivering and unloading liquid CO2 or Dry Ice."
         },
         {
             "employer" : "Peterson Transportation",
