@@ -15,7 +15,7 @@ var bio = {
     "WelcomeMessage" : "Welcome To My Resume Page",
     "Skills" : [" SQL", " Truck Driver", " Carpenter", " Electrician", 
         " Computer Repair", " HTML & CSS", " Forklift Operator", " Mechanic", 
-        " Welder"],
+        " Welder", " JavaScript"],
     "pictureURL" : "images/me.jpeg"
 }
 var education = {
