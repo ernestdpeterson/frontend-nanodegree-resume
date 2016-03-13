@@ -93,17 +93,36 @@ var work = {
             "location" : "Big Creek, MS",
             "dates" : "2/1991-11/1993",
             "description" : "Delivered parts from/to GM warehouses and plants."
-        },
+        }
     ]
 }
-var projects = [
+var projects = {
+    "projects" : [
+    {
+        "title" : "JavaScript Tutorial",
+        "dates" : "2/2015-3/2015",
+        "description" : "Studied tutorial and completed test quiz.",
+        //"images" : "images/smiley.gif"
+    },
     {
         "title" : "Front End Web Developer",
         "dates" : "11/2015-current",
         "description" : "Learning the various aspects of web page development",
         "images" : "images/smiley.gif"
-    }
-]
+    }]
+}
+//projects.display = function(){
+    for (x in projects.projects){
+        $("#projects").append(HTMLprojectStart);
+        var fTitle = HTMLprojectTitle.replace("%data%", projects.projects[x].title);
+        var fDate = HTMLprojectDates.replace("%data%", projects.projects[x].dates);
+        var fDescription = HTMLprojectDescription.replace("%data%", projects.projects[x].description);
+        var fImage = HTMLprojectImage.replace("%data%", projects.projects[x].images);
+        $(".project-entry:last").append(fTitle).append(fDate).append(fDescription);
+        if (projects.projects[x].images != null){
+            $(".project-entry:last").append(fImage);
+        }
+}
 // Conditionals below this line
 if(bio.Skills.length > 0) {
     $("#header").append(HTMLskillsStart);
@@ -122,14 +141,6 @@ function displayWork(){
     }
 }
 displayWork();
-    // for internationalize button
-function inName(name) {
-    name = Name1.trim().split(" ");
-    console.log(name);
-    name[2] = name[2].toUpperCase();
-    name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
-    return name[0] +" "+ name[2];
-}
 // Formatting below this line
 var Name = HTMLheaderName.replace("%data%", Name1);
 var Role = HTMLheaderRole.replace("%data%", Role1);
@@ -141,4 +152,3 @@ $("#header").prepend(Name);
 $("#header").prepend(pic);
 $("#header").append(work.jobs.title);
 $("#skills").append(formattedSkills);
-$("#main").append(internationalizeButton);
