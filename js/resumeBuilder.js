@@ -18,6 +18,17 @@ var bio = {
         " Welder", " JavaScript"],
     "pictureURL" : "images/me.jpeg"
 }
+var Name = HTMLheaderName.replace("%data%", Name1);
+var Role = HTMLheaderRole.replace("%data%", Role1);
+var formattedSkills = HTMLskills.replace("%data%", bio.Skills);
+var pic = HTMLbioPic.replace("%data%", bio.pictureURL);
+$("#header").prepend(Role);
+$("#header").prepend(Name);
+$("#header").prepend(pic);
+if(bio.Skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+}
+$("#skills").append(formattedSkills);
 var education = {
     "schools" : [
         {
@@ -50,6 +61,7 @@ var education = {
         }
     ]
 }
+//$("#education").append(HTMLschoolStart);
 var work = {
     "jobs" : [
         {
@@ -90,44 +102,13 @@ var work = {
         {
             "employer" : "T&L Trucking",
             "title" : "Truck Driver",
-            "location" : "Big Creek, MS",
+            "location" : "Ellisville, MS",
             "dates" : "2/1991-11/1993",
             "description" : "Delivered parts from/to GM warehouses and plants."
         }
     ]
 }
-var projects = {
-    "projects" : [
-    {
-        "title" : "JavaScript Tutorial",
-        "dates" : "2/2015-3/2015",
-        "description" : "Studied tutorial and completed test quiz.",
-        //"images" : "images/smiley.gif"
-    },
-    {
-        "title" : "Front End Web Developer",
-        "dates" : "11/2015-current",
-        "description" : "Learning the various aspects of web page development",
-        "images" : "images/smiley.gif"
-    }]
-}
-//projects.display = function(){
-    for (x in projects.projects){
-        $("#projects").append(HTMLprojectStart);
-        var fTitle = HTMLprojectTitle.replace("%data%", projects.projects[x].title);
-        var fDate = HTMLprojectDates.replace("%data%", projects.projects[x].dates);
-        var fDescription = HTMLprojectDescription.replace("%data%", projects.projects[x].description);
-        var fImage = HTMLprojectImage.replace("%data%", projects.projects[x].images);
-        $(".project-entry:last").append(fTitle).append(fDate).append(fDescription);
-        if (projects.projects[x].images != null){
-            $(".project-entry:last").append(fImage);
-        }
-}
-// Conditionals below this line
-if(bio.Skills.length > 0) {
-    $("#header").append(HTMLskillsStart);
-}
-function displayWork(){
+work.display = function(){
     for (job in work.jobs){
         $("#workExperience").append(HTMLworkStart);
         var employer1 = HTMLworkEmployer.replace("%data%", work.jobs[job]["employer"]);
@@ -139,16 +120,35 @@ function displayWork(){
         $(".work-entry:last").append(formattedEmployerTitle).append(local).append(edates)
         .append(tell);
     }
+}();
+var projects = {
+    "projects" : [
+        {
+        "title" : "JavaScript Tutorial",
+        "dates" : "2/2015-3/2015",
+        "description" : "Studied JavaScript tutorial and completed test quiz.",
+        //"images" : "images/smiley.gif"
+        },
+        {
+        "title" : "Front End Web Developer",
+        "dates" : "11/2015-current",
+        "description" : "Learning the various aspects of web page development",
+        "images" : "images/smiley.gif"
+        }
+    ]
 }
-displayWork();
-// Formatting below this line
-var Name = HTMLheaderName.replace("%data%", Name1);
-var Role = HTMLheaderRole.replace("%data%", Role1);
-var formattedSkills = HTMLskills.replace("%data%", bio.Skills);
-var pic = HTMLbioPic.replace("%data%", bio.pictureURL);
-// appending below this line
-$("#header").prepend(Role);
-$("#header").prepend(Name);
-$("#header").prepend(pic);
-$("#header").append(work.jobs.title);
-$("#skills").append(formattedSkills);
+projects.display = function(){
+    for (x in projects.projects){
+        $("#projects").append(HTMLprojectStart);
+        var fTitle = HTMLprojectTitle.replace("%data%", projects.projects[x].title);
+        var fDate = HTMLprojectDates.replace("%data%", projects.projects[x].dates);
+        var fDescription = HTMLprojectDescription.replace("%data%", 
+            projects.projects[x].description);
+        var fImage = HTMLprojectImage.replace("%data%", projects.projects[x].images);
+        $(".project-entry:last").append(fTitle).append(fDate).append(fDescription);
+        if (projects.projects[x].images != null){
+            $(".project-entry:last").append(fImage);
+        }
+    }
+}();
+$("#mapDiv").append(googleMap);
