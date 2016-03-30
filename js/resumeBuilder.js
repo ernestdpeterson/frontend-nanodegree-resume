@@ -5,17 +5,18 @@ var bio = {
     "LastName" : "Peterson",
     "MiddleName" : "D.",
     "Role" : "Web Developer",
-    "contacts" : 
-        {
-            "github" : "ernestdpeterson",
-            "mobile" : "601-307-4377",
-            "email" : "petesplace312@yahoo.com",
-            "location" : "Pensacola, FL",
-        },
+    "contacts" : {
+        "github" : "ernestdpeterson",
+        "mobile" : "601-307-4377",
+        "email" : "petesplace312@yahoo.com",
+        "location" : "Pensacola, FL",
+    },
     "WelcomeMessage" : "Welcome To My Resume Page",
-    "Skills" : [" SQL", " Truck Driver", " Carpenter", " Electrician", 
+    "Skills" : [
+        " SQL", " Truck Driver", " Carpenter", " Electrician", 
         " Computer Repair", " HTML & CSS", " Forklift Operator", " Mechanic", 
-        " Welder", " JavaScript"],
+        " Welder", " JavaScript"
+    ],
     "pictureURL" : "images/me.jpeg"
 }
 var Name = HTMLheaderName.replace("%data%", Name1);
@@ -41,7 +42,14 @@ var education = {
     ],
     "onlineCourses" : [
         {
-            "title" : "Database Administration and Linux Systems Administration",
+            "title" : "Database Administration",
+            "school" : "O'Reilly School of Technology",
+            "dates" : "",
+            "url" : "http://www.oreillyschool.com/"
+            
+        },
+        {
+            "title" : "Linux Systems Administration",
             "school" : "O'Reilly School of Technology",
             "dates" : "",
             "url" : "http://www.oreillyschool.com/"
@@ -127,13 +135,17 @@ var projects = {
         "title" : "JavaScript Tutorial",
         "dates" : "2/2015-3/2015",
         "description" : "Studied JavaScript tutorial and completed test quiz.",
-        //"images" : "images/smiley.gif"
+        /*"images" : [
+            "images/smiley.gif"
+        ]*/
         },
         {
         "title" : "Front End Web Developer",
         "dates" : "11/2015-current",
         "description" : "Learning the various aspects of web page development",
-        "images" : "images/smiley.gif"
+        "images" : [
+            "images/smiley.gif"
+        ]
         }
     ]
 }
