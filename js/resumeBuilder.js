@@ -1,12 +1,8 @@
-var Name1 = "Ernest D. Peterson";
-var Role1 = "Web Developer";
 var bio = {
-    "FirstName" : "Ernest",
-    "LastName" : "Peterson",
-    "MiddleName" : "D.",
-    "Role" : "Web Developer",
+    "name" : "Ernest D. Peterson",
+    "role" : "Web Developer",
     "contacts" : {
-        "github" : "ernestdpeterson",
+        "github" : "ernestdpeterson@github.com",
         "mobile" : "601-307-4377",
         "email" : "petesplace312@yahoo.com",
         "location" : "Pensacola, FL",
@@ -19,24 +15,36 @@ var bio = {
     ],
     "pictureURL" : "images/me.jpeg"
 }
-var Name = HTMLheaderName.replace("%data%", Name1);
-var Role = HTMLheaderRole.replace("%data%", Role1);
-var formattedSkills = HTMLskills.replace("%data%", bio.Skills);
-var pic = HTMLbioPic.replace("%data%", bio.pictureURL);
-$("#header").prepend(Role);
-$("#header").prepend(Name);
-$("#header").prepend(pic);
-if(bio.Skills.length > 0) {
-    $("#header").append(HTMLskillsStart);
-}
-$("#skills").append(formattedSkills);
+bio.display = function(){
+    var Name = HTMLheaderName.replace("%data%", bio.name);
+    var Role = HTMLheaderRole.replace("%data%", bio.role);
+    var Contact = HTMLcontactGeneric.replace("%contact%", "Correspondence Welcome at:")
+        .replace("%data%", " ");
+    var Mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    var Email = HTMLemail.replace("%data%", bio.contacts.email);
+    var Github = HTMLgithub.replace("%data%", bio.contacts.github);
+    var formattedSkills = HTMLskills.replace("%data%", bio.Skills);
+    var pic = HTMLbioPic.replace("%data%", bio.pictureURL);
+    $("#header").prepend(Role);
+    $("#header").prepend(Name);
+    $("#header").prepend(pic);
+    if(bio.Skills.length > 0) {
+        $("#header").append(HTMLskillsStart);
+    }
+    $("#skills").append(formattedSkills);
+    $("#header").append(Contact);
+    $("#header").append(Mobile);
+    $("#header").append(Email);
+    $("#header").append(Github);
+}();
 var education = {
     "schools" : [
         {
             "name" : "Jones County Junior College-Extension",
             "location" : "Ellisville, MS",
             "degree" : "Production Welder",
-            "majors" : "",
+            "majors" : ["Production Welder"],
+            "dates" : "2010",
             "url" : "http://www.jcjc.edu/"
         }
     ],
@@ -44,32 +52,66 @@ var education = {
         {
             "title" : "Database Administration",
             "school" : "O'Reilly School of Technology",
-            "dates" : "",
+            "dates" : "2014",
             "url" : "http://www.oreillyschool.com/"
             
         },
         {
             "title" : "Linux Systems Administration",
             "school" : "O'Reilly School of Technology",
-            "dates" : "",
+            "dates" : "2015",
             "url" : "http://www.oreillyschool.com/"
             
         },
         {
             "title" : "CompTIA A+ and Network+",
             "school" : "University of Phoenix",
-            "dates" : "",
+            "dates" : "2014",
             "url" : "http://www.phoenix.edu/"
         },
         {
             "title" : "Front End Web Developer", 
             "school" : "Udacity",
-            "dates" : "",
+            "dates" : "2016",
             "url" : "https://www.udacity.com/"
         }
     ]
 }
-//$("#education").append(HTMLschoolStart);
+education.display = function(){
+    if(education.schools.length > 0) {
+        for (x in education.schools){
+            $("#education").append(HTMLschoolStart);
+            var schoolName = HTMLschoolName.replace("%data%", education.schools[x]
+                .name);
+            var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[x]
+                .degree);
+            var schoolDates = HTMLschoolDates.replace("%data%", education.schools[x]
+                .dates);
+            var schoolLocation = HTMLschoolLocation.replace("%data%", education.
+                schools[x].location);
+            $(".education-entry:last").append(schoolName).append(schoolDegree)
+                .append(schoolDates).append(schoolLocation);
+            for (a in education.schools[x].majors){
+                var schoolMajor = HTMLschoolMajor.replace("%data%", education
+                    .schools[x].majors[a]);
+                $(".education-entry").append(schoolMajor);
+            }
+        }
+    }
+    $(".education-entry").append(HTMLonlineClasses);
+    for (x in education.onlineCourses){
+        var onlineTitle = HTMLonlineTitle.replace("%data%", education
+            .onlineCourses[x].title);
+        var onlineSchool = HTMLonlineSchool.replace("%data%", education
+            .onlineCourses[x].school);
+        var onlineDates = HTMLonlineDates.replace("%data%", education
+            .onlineCourses[x].dates);
+        var onlineURL = HTMLonlineURL.replace("%data%", education
+            .onlineCourses[x].url);
+        $(".education-entry").append(onlineTitle).append(onlineSchool)
+            .append(onlineDates).append(onlineURL);
+    }
+}();
 var work = {
     "jobs" : [
         {
@@ -91,14 +133,14 @@ var work = {
             "title" : "Truck Driver",
             "location" : "Perl, MS",
             "dates" : "10/1999-4/2003",
-            "description" : "Loading and delivering fuel to Flying J Truckstops."
+            "description" : "Loading and delivering fuel to Flying J truck stops."
         },
         {
             "employer" : "Fleet Morris",
             "title" : "Truck Driver",
             "location" : "Collins, MS",
             "dates" : "5/1997-10/1999",
-            "description" : "Fuel delivery to varios gas stations."
+            "description" : "Fuel delivery to various gas stations."
         },
         {
             "employer" : "Sanderson Farms",
