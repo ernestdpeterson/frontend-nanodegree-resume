@@ -9,11 +9,11 @@ var bio = {
     },
     "WelcomeMessage" : "Welcome To My Resume Page",
     "Skills" : [
-        " SQL", " Truck Driver", " Carpenter", " Electrician", 
-        " Computer Repair", " HTML & CSS", " Forklift Operator", " Mechanic", 
+        "SQL", " Truck Driver", " Carpenter", " Electrician",
+        " Computer Repair", " HTML & CSS", " Forklift Operator", " Mechanic",
         " Welder", " JavaScript"
     ],
-    "pictureURL" : "images/me.jpeg"
+    "pictureURL" : "images/longAgo.jpg"
 }
 bio.display = function(){
     var Name = HTMLheaderName.replace("%data%", bio.name);
@@ -54,14 +54,14 @@ var education = {
             "school" : "O'Reilly School of Technology",
             "dates" : "2014",
             "url" : "http://www.oreillyschool.com/"
-            
+
         },
         {
             "title" : "Linux Systems Administration",
             "school" : "O'Reilly School of Technology",
             "dates" : "2015",
             "url" : "http://www.oreillyschool.com/"
-            
+
         },
         {
             "title" : "CompTIA A+ and Network+",
@@ -70,7 +70,7 @@ var education = {
             "url" : "http://www.phoenix.edu/"
         },
         {
-            "title" : "Front End Web Developer", 
+            "title" : "Front End Web Developer",
             "school" : "Udacity",
             "dates" : "2016",
             "url" : "https://www.udacity.com/"
@@ -196,7 +196,7 @@ projects.display = function(){
         $("#projects").append(HTMLprojectStart);
         var fTitle = HTMLprojectTitle.replace("%data%", projects.projects[x].title);
         var fDate = HTMLprojectDates.replace("%data%", projects.projects[x].dates);
-        var fDescription = HTMLprojectDescription.replace("%data%", 
+        var fDescription = HTMLprojectDescription.replace("%data%",
             projects.projects[x].description);
         var fImage = HTMLprojectImage.replace("%data%", projects.projects[x].images);
         $(".project-entry:last").append(fTitle).append(fDate).append(fDescription);
