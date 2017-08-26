@@ -2,18 +2,18 @@ var bio = {
     name : "Ernest D. Peterson",
     role : "Web Developer",
     contacts : {
-        github : "ernestdpeterson@github.com",
         mobile : "601-307-4377",
         email : "petesplace312@yahoo.com",
+        github : "ernestdpeterson@github.com",
         location : "Pensacola, FL",
     },
-    WelcomeMessage : "Welcome To My Resume Page",
-    Skills : [
+    welcomeMessage : "Welcome To My Resume Page",
+    skills : [
         "SQL", " Truck Driver", " Carpenter", " Electrician",
         " Computer Repair", " HTML & CSS", " Forklift Operator", " Mechanic",
         " Welder", " JavaScript"
     ],
-    pictureURL : "images/longAgo.jpg"
+    biopic : "images/longAgo.jpg"
 };
 bio.display = function(){
     var Name = HTMLheaderName.replace("%data%", bio.name);
@@ -22,19 +22,20 @@ bio.display = function(){
     var Mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     var Email = HTMLemail.replace("%data%", bio.contacts.email);
     var Github = HTMLgithub.replace("%data%", bio.contacts.github);
-    var formattedSkills = HTMLskills.replace("%data%", bio.Skills);
-    var pic = HTMLbioPic.replace("%data%", bio.pictureURL);
+    var formattedSkills = HTMLskills.replace("%data%", bio.skills);
+    var pic = HTMLbioPic.replace("%data%", bio.biopic);
     $("#header").prepend(Role);
     $("#header").prepend(Name);
     $("#header").prepend(pic);
-    if(bio.Skills.length > 0) {
+    if(bio.skills.length > 0) {
         $("#header").append(HTMLskillsStart);
     }
     $("#skills").append(formattedSkills);
-    $("#header").append(Contact);
-    $("#header").append(Mobile);
-    $("#header").append(Email);
-    $("#header").append(Github);
+    // $("#header").append(Contact);
+    // $("#header").append(Mobile);
+    // $("#header").append(Email);
+    // $("#header").append(Github);
+    $("#header, #footerContacts").append(Contact + Mobile + Email + Github);
 }();
 var education = {
     schools : [
@@ -159,7 +160,7 @@ var work = {
         }
     ],
     display : function(){
-        for (var job in work.jobs){
+        for (var job = 0;  job < work.jobs.length; job++){
             $("#workExperience").append(HTMLworkStart);
             var employer1 = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
             var title1 = HTMLworkTitle.replace("%data%", work.jobs[job].title);
@@ -180,9 +181,9 @@ var projects = {
             title : "JavaScript Tutorial",
             dates : "2/2016-3/2016",
             description : "Studied JavaScript tutorial and completed test quiz.",
-            /*images : [
+            images : [
                 "images/smiley.gif"
-            ]*/
+            ]
         },
         {
             title : "Front End Web Developer",
